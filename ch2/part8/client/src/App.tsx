@@ -62,7 +62,7 @@ function App() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={4} align="flex-start">
           <Heading as="h3" size="lg">
-            Add new alias
+            Add new alias 333
           </Heading>
 
           <FormControl isInvalid={!!errors.alias}>
