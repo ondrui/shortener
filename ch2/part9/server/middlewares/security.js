@@ -10,25 +10,26 @@ function secure(app) {
 
   app.use(
     cors({
-      origin: ["https://example.ru", "http://localhost:3001"],
+      // origin: ["https://example.ru", "http://localhost:3001"],
+      origin: '*',
     })
   );
 
-  app.use(
-    helmet({
-      contentSecurityPolicy: {
-        useDefaults: true,
-        directives: {
-          scriptSrc: [
-            "'self'",
-            "'unsafe-inline'",
-            "https://cdn.jsdelivr.net",
-            "https://code.jquery.com",
-          ],
-        },
-      },
-    })
-  );
+  // app.use(
+  //   helmet({
+  //     contentSecurityPolicy: {
+  //       useDefaults: true,
+  //       directives: {
+  //         scriptSrc: [
+  //           "'self'",
+  //           "'unsafe-inline'",
+  //           "https://cdn.jsdelivr.net",
+  //           "https://code.jquery.com",
+  //         ],
+  //       },
+  //     },
+  //   })
+  // );
 
   // app.use(helmet.contentSecurityPolicy());
   // app.use(helmet.crossOriginEmbedderPolicy());
@@ -52,7 +53,7 @@ function secure(app) {
   });
 
   const speedLimiter = slowDown({
-    windowMs: 1 * 60 * 1000, 
+    windowMs: 1 * 60 * 1000,
     delayAfter: 100, // allow 100 requests per minute,
     delayMs: 1000, // adding 1000ms of delay per request above 100
     // request # 101 is delayed by 1000ms
